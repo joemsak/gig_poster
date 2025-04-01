@@ -3,20 +3,25 @@
 one:
   title: MyString
   amount: 9.99
+  user: one
 
 two:
   title: MyString
   amount: 9.99
+  user: two
 
 missing_title:
   title:
   amount: 9.99
+  user: one
 
 missing_amount:
   title: MyString
   amount:
+  user: one
 
 zero_amount:
   title: MyString
   amount: 0
+  user: one
 

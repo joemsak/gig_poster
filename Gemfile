@@ -65,3 +65,5 @@ end
 gem "cuprite", "~> 0.15.1", group: :test
 
 gem "pessimize", "~> 0.5.0", group: :development
+
+gem "bcrypt", "~> 3.1.20"

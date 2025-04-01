@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: one@example.com
+  password_digest: <%= BCrypt::Password.create('SecretCode@1234', cost: 5) %>
+
+two:
+  email: two@example.com
+  password_digest: <%= BCrypt::Password.create('SecretCode@1234', cost: 5) %>
+
+blank_email:
+  email:
+  password_digest: <%= BCrypt::Password.create('SecretCode@1234', cost: 5) %>
+
+blank_password:
+  email: blank-password@example.com
+  password_digest:
+
+weak_password:
+  email: blank-password@example.com
+  password_digest: <%= BCrypt::Password.create('weak', cost: 5) %>
