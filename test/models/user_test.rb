@@ -7,6 +7,14 @@ class UserTest < ActiveSupport::TestCase
     assert_equal [ "can't be blank" ], user.errors[:email]
   end
 
+  test "email must be unique" do
+    user = users(:one)
+
+    user2 = User.new(email: user.email)
+    assert_not user2.valid?
+    assert_equal [ "has already been taken" ], user2.errors[:email]
+  end
+
   test "password must be present" do
     user = users(:blank_password)
     assert_not user.valid?
@@ -14,12 +22,13 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "password must be strong" do
-    user = users(:weak_password)
+    user = User.new(password: "weak")
+
     assert_not user.valid?
-    assert_equal [
-      "must be at least 8 characters",
-      "must contain at least 1 number",
-      "must contain at least 1 symbol" 
-    ], user.errors[:password]
+    assert_equal [ "must include at least one lowercase letter, one uppercase letter, one digit, one symbol (!, @, #, $, %, &, *), and needs to be minimum 8 characters." ],
+      user.errors[:password]
+
+    user = User.new(email: "user@example.com", password: "NotWeak@1234")
+    assert user.valid?
   end
 end

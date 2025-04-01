@@ -2,20 +2,16 @@
 
 one:
   email: one@example.com
-  password_digest: <%= BCrypt::Password.create('SecretCode@1234', cost: 5) %>
+  password_digest: <%= default_password_digest %>
 
 two:
   email: two@example.com
-  password_digest: <%= BCrypt::Password.create('SecretCode@1234', cost: 5) %>
+  password_digest: <%= default_password_digest %>
 
 blank_email:
   email:
-  password_digest: <%= BCrypt::Password.create('SecretCode@1234', cost: 5) %>
+  password_digest: <%= default_password_digest %>
 
 blank_password:
   email: blank-password@example.com
   password_digest:
-
-weak_password:
-  email: blank-password@example.com
-  password_digest: <%= BCrypt::Password.create('weak', cost: 5) %>
