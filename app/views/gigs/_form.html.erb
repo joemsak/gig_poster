@@ -1,0 +1,27 @@
+<%= form_with(model: gig) do |form| %>
+  <% if gig.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(gig.errors.count, "error") %> prohibited this gig from being saved:</h2>
+
+      <ul>
+        <% gig.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :bounty, style: "display: block" %>
+    <%= form.text_field :bounty %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
