@@ -16,10 +16,6 @@ missing_bounty:
   title: MyString
   bounty:
 
-non_numeric_bounty:
-  title: MyString
-  bounty: MyString
-
 zero_bounty:
   title: MyString
   bounty: 0

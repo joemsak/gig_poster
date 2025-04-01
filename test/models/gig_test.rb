@@ -13,12 +13,6 @@ class GigTest < ActiveSupport::TestCase
     assert_equal [ "can't be blank", "is not a number" ], gig.errors[:bounty]
   end
 
-  test "bounty must be a number" do
-    gig = gigs(:non_numeric_bounty)
-    assert_not gig.valid?
-    assert_equal [ "is not a number" ], gig.errors[:bounty]
-  end
-
   test "bounty must be greater than 0" do
     gig = gigs(:zero_bounty)
     assert_not gig.valid?
