@@ -2,20 +2,21 @@
 
 one:
   title: MyString
-  bounty: 9.99
+  amount: 9.99
 
 two:
   title: MyString
-  bounty: 9.99
+  amount: 9.99
 
 missing_title:
   title:
-  bounty: 9.99
+  amount: 9.99
 
-missing_bounty:
+missing_amount:
   title: MyString
-  bounty:
+  amount:
 
-zero_bounty:
+zero_amount:
   title: MyString
-  bounty: 0
+  amount: 0
+

@@ -1,10 +1,10 @@
-<%= form_with(model: gig) do |form| %>
-  <% if gig.errors.any? %>
+<%= form_with(model: bounty) do |form| %>
+  <% if bounty.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(gig.errors.count, "error") %> prohibited this gig from being saved:</h2>
+      <h2><%= pluralize(bounty.errors.count, "error") %> prohibited this bounty from being saved:</h2>
 
       <ul>
-        <% gig.errors.each do |error| %>
+        <% bounty.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -17,8 +17,8 @@
   </div>
 
   <div>
-    <%= form.label :bounty, style: "display: block" %>
-    <%= form.text_field :bounty %>
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.text_field :amount %>
   </div>
 
   <div>

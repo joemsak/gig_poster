@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Bounties" %>
+
+<h1>Bounties</h1>
+
+<div id="bounties">
+  <% @bounties.each do |bounty| %>
+    <%= render bounty %>
+    <p>
+      <%= link_to "Show this bounty", bounty %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New bounty", new_bounty_path %>

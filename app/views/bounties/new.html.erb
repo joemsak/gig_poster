@@ -1,0 +1,11 @@
+<% content_for :title, "New bounty" %>
+
+<h1>New bounty</h1>
+
+<%= render "form", bounty: @bounty %>
+
+<br>
+
+<div>
+  <%= link_to "Back to bounties", bounties_path %>
+</div>

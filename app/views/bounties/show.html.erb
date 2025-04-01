@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @bounty %>
+
+<div>
+  <%= link_to "Edit this bounty", edit_bounty_path(@bounty) %> |
+  <%= link_to "Back to bounties", bounties_path %>
+
+  <%= button_to "Destroy this bounty", @bounty, method: :delete %>
+</div>

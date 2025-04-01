@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_01_204648) do
-  create_table "gigs", force: :cascade do |t|
+ActiveRecord::Schema[8.0].define(version: 2025_04_01_221227) do
+  create_table "bounties", force: :cascade do |t|
     t.string "title"
-    t.decimal "bounty", precision: 5, scale: 2
+    t.decimal "amount", precision: 5, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
