@@ -3,6 +3,7 @@ require "test_helper"
 class BountiesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @bounty = bounties(:one)
+    login_as(users(:one))
   end
 
   test "should get index" do

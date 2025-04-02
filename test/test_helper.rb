@@ -2,9 +2,11 @@ ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
 require "support/test_password_helper"
+require "support/test_login_helper"
 
 module ActiveSupport
   class TestCase
+    include TestLoginHelper
     include TestPasswordHelper
     # Run tests in parallel with specified workers
     parallelize(workers: :number_of_processors)

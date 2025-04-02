@@ -3,6 +3,7 @@ require "application_system_test_case"
 class BountiesTest < ApplicationSystemTestCase
   setup do
     @bounty = bounties(:one)
+    login_as(users(:one))
   end
 
   test "visiting the index" do

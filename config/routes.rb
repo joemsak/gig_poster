@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :users
   resources :bounties
+  resources :users
+
+  resources :sessions, only: :create
+  get "login" => "sessions#new", as: :login
 
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check

@@ -1,27 +1,16 @@
 class BountiesController < ApplicationController
   before_action :set_bounty, only: %i[ show edit update destroy ]
 
-  # GET /bounties or /bounties.json
   def index
     @bounties = Bounty.all
   end
 
-  # GET /bounties/1 or /bounties/1.json
-  def show
-  end
-
-  # GET /bounties/new
   def new
     @bounty = Bounty.new
   end
 
-  # GET /bounties/1/edit
-  def edit
-  end
-
-  # POST /bounties or /bounties.json
   def create
-    @bounty = Bounty.new(bounty_params)
+    @bounty = current_user.bounties.build(bounty_params)
 
     respond_to do |format|
       if @bounty.save
@@ -34,7 +23,6 @@ class BountiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /bounties/1 or /bounties/1.json
   def update
     respond_to do |format|
       if @bounty.update(bounty_params)
@@ -47,7 +35,6 @@ class BountiesController < ApplicationController
     end
   end
 
-  # DELETE /bounties/1 or /bounties/1.json
   def destroy
     @bounty.destroy!
 
@@ -58,12 +45,11 @@ class BountiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_bounty
       @bounty = Bounty.find(params.expect(:id))
     end
 
-    # Only allow a list of trusted parameters through.
     def bounty_params
       params.expect(bounty: [ :title, :amount ])
     end
