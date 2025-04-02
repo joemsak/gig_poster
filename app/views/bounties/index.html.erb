@@ -2,7 +2,7 @@
 
 <h1>Bounties</h1>
 
-<%= button_to "&plus; Post a bounty".html_safe, new_bounty_path, method: :get %>
+<%= button_to "&plus; Post a bounty".html_safe, new_bounty_path, method: :get, class: "mt-4" %>
 
 <table id="bounties" class="mt-4">
   <%= render @bounties %>

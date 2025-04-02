@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  allow_browser versions: :modern
-
   rescue_from "ActiveRecord::RecordNotFound" do
     redirect_to root_path, alert: "We couldn't find that page."
   end

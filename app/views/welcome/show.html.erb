@@ -3,13 +3,13 @@
 <h1>Welcome to Bounty Hunter</h1>
 
 <p>
-  Got some odd jobs need doin'?<br>
-  Post the bounties that you're willing to pay for someone to do 'em!
+  Got some odd jobs need doin&CloseCurlyQuote;?<br>
+  Post the bounties that you&CloseCurlyQuote;re willing to pay for someone to do &OpenCurlyQuote;em!
 </p>
 
 <p>
   <% if current_user %>
-    <%= link_to "My bounties", bounties_path %>
+    <%= link_to "Browse bounties", bounties_path %>
   <% else %>
     <%= link_to "Log in", login_path %> or
     <%= link_to "Sign up", signup_path %>

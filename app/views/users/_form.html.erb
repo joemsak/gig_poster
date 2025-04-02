@@ -8,11 +8,11 @@
   <%= f.password_field :password %>
 
   <div class="text-gray-500 text-sm italic">
-    Password must be at least 8 characters,<br>
-    containing at least 1 uppercase letter,<br>
-    1 lowercase letter, 1 number,<br>
-    and 1 symbol (!, @, #, $, %, &, *)
+    Password must be at least 8 characters,
+    containing at least 1 uppercase letter,
+    1 lowercase letter, 1 number,
+    and 1 symbol (!, @, #, $, %, &amp;, *)
   </div>
 
-  <%= f.submit user.new_record? ? "Sign up" : "Update" %>
+  <%= f.submit user.new_record? ? "Sign up" : "Update", class: "mt-8" %>
 <% end %>

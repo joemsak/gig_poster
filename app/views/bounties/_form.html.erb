@@ -1,8 +1,8 @@
-<%= form_with(model: bounty, class: "max-w-fit") do |f| %>
+<%= form_with(model: bounty) do |f| %>
   <%= render "shared/errors", errors: bounty.errors %>
 
   <%= f.label :title %>
-  <%= f.text_field :title, class: "w-full" %>
+  <%= f.text_field :title %>
 
   <%= f.label :amount %>
 
@@ -11,9 +11,11 @@
     <%= f.text_field :amount %>
   </div>
 
-  <div class="flex items-center gap-1">
+  <div class="mt-8 md:flex md:items-center md:gap-1">
     <%= f.submit "Save" %>
-    or
-    <%= link_to "cancel", bounties_path %>
+
+    <div class="mt-4 md:m-0 shrink-0">
+      or <%= link_to "cancel", bounty.new_record? ? bounties_path : bounty %>
+    </div>
   </div>
 <% end %>

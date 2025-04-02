@@ -19,7 +19,7 @@ class BountiesTest < ApplicationSystemTestCase
 
   test "should update Bounty" do
     visit bounty_url(@bounty)
-    click_on "edit", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Amount", with: @bounty.amount
     fill_in "Title", with: @bounty.title
@@ -30,7 +30,7 @@ class BountiesTest < ApplicationSystemTestCase
 
   test "should destroy Bounty" do
     visit bounty_url(@bounty)
-    accept_confirm { click_on "delete", match: :first }
+    accept_confirm { click_on "Delete", match: :first }
 
     assert_text "Bounty was successfully destroyed"
   end
