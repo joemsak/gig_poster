@@ -8,7 +8,7 @@ import "controllers"
     const lsPostalCodeKey = "_bh_postal_code"
     const postalCode = localStorage.getItem(lsPostalCodeKey)
 
-    if ("geolocation" in navigator && !postalCode)
+    if (!postalCode && "geolocation" in navigator)
       navigator.geolocation.getCurrentPosition(({ coords }) => {
         fetch(`${reverseGeocodePath}?lat=${coords.latitude}&lng=${coords.longitude}`)
           .then(resp => resp.json())
