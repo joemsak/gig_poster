@@ -4,13 +4,13 @@ import "controllers"
 
 (() => {
   document.addEventListener("turbo:load", () => {
-    const reverseGeocodePath = "http://api.geonames.org/findNearbyPostalCodesJSON"
+    const reverseGeocodePath = "/geocoding"
     const lsPostalCodeKey = "_bh_postal_code"
     const postalCode = localStorage.getItem(lsPostalCodeKey)
 
     if ("geolocation" in navigator && !postalCode)
       navigator.geolocation.getCurrentPosition(({ coords }) => {
-        fetch(`${reverseGeocodePath}?lat=${coords.latitude}&lng=${coords.longitude}&username=joemsak`)
+        fetch(`${reverseGeocodePath}?lat=${coords.latitude}&lng=${coords.longitude}`)
           .then(resp => resp.json())
           .then(json => localStorage.setItem(lsPostalCodeKey, json.postalCodes[0].postalCode))
       })
