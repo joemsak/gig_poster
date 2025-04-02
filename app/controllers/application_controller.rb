@@ -30,8 +30,8 @@ class ApplicationController < ActionController::Base
       return unless Rails.env.production?
       
       # Check both the header and the protocol Rails detects
-      if !request.ssl? && request.headers['X-Forwarded-Proto'] != 'https'
-        redirect_to root_url(protocol: 'https'), status: :moved_permanently
+      if !request.ssl? && request.headers["X-Forwarded-Proto"] != "https"
+        redirect_to root_url(protocol: "https"), status: :moved_permanently
       end
     end
 end
