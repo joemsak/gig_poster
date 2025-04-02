@@ -7,5 +7,12 @@
   <%= f.label :password %>
   <%= f.password_field :password %>
 
+  <div class="text-gray-500 text-sm italic">
+    Password must be at least 8 characters,<br>
+    containing at least 1 uppercase letter,<br>
+    1 lowercase letter, 1 number,<br>
+    and 1 symbol (!, @, #, $, %, &, *)
+  </div>
+
   <%= f.submit "Sign up" %>
 <% end %>

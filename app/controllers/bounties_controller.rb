@@ -1,9 +1,13 @@
 class BountiesController < ApplicationController
   before_action :require_user
-  before_action :set_bounty, only: %i[ show edit update destroy ]
+  before_action :load_and_authorize_bounty, only: %i[ edit update destroy ]
 
   def index
-    @bounties = Bounty.all
+    @bounties = current_user.bounties
+  end
+
+  def show
+    @bounty = Bounty.find(params.expect(:id))
   end
 
   def new
@@ -47,8 +51,9 @@ class BountiesController < ApplicationController
 
   private
 
-    def set_bounty
+    def load_and_authorize_bounty
       @bounty = Bounty.find(params.expect(:id))
+      authorize!(@bounty)
     end
 
     def bounty_params
