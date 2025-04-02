@@ -32,7 +32,8 @@ Rails.application.configure do
 
   config.ssl_options = {
     redirect: {
-      port: 443
+      port: 443,
+      exclude: ->(req) { req.headers['X-Forwarded-Proto'] == 'https' }
     },
     hsts: {
       preload: true,
@@ -40,6 +41,15 @@ Rails.application.configure do
       subdomains: true
     }
   }
+
+  config.action_dispatch.trusted_proxies = [
+    IPAddr.new("0.0.0.0/0"),          # Trust all proxies (for Render's dynamic infrastructure)
+    IPAddr.new("::/0"),
+    "127.0.0.1",                      # Localhost
+    "10.0.0.0/8",                     # Private network
+    "172.16.0.0/12",                  # Private network
+    "192.168.0.0/16"                  # Private network
+  ]
 
   # Log to STDOUT with the current request id as a default log tag.
   config.log_tags = [ :request_id ]
