@@ -392,7 +392,7 @@ DEPENDENCIES
   jbuilder (~> 2.13.0)
   kamal (~> 2.5.3)
   pessimize (~> 0.5.0)
-  pg (~> 1.5)
+  pg (~> 1.5.9)
   propshaft (~> 1.1.0)
   puma (~> 6.6.0)
   rails (~> 8.0.2)
