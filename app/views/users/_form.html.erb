@@ -14,5 +14,5 @@
     and 1 symbol (!, @, #, $, %, &, *)
   </div>
 
-  <%= f.submit "Sign up" %>
+  <%= f.submit user.new_record? ? "Sign up" : "Update" %>
 <% end %>
