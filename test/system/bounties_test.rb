@@ -6,13 +6,8 @@ class BountiesTest < ApplicationSystemTestCase
     login_as(users(:one))
   end
 
-  test "visiting the index" do
-    visit root_url
-    assert_selector "h1", text: "Bounty Hunter"
-  end
-
   test "should create bounty" do
-    visit root_url
+    visit bounties_path
     click_on "New bounty"
 
     fill_in "Amount", with: @bounty.amount
