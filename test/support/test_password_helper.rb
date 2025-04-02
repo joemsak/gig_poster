@@ -8,4 +8,4 @@ module TestPasswordHelper
   def default_password
     "SecretCode@1234"
   end
-end 
+end
