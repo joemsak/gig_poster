@@ -51,12 +51,12 @@ class BountiesController < ApplicationController
 
   private
 
-    def load_and_authorize_bounty
-      @bounty = Bounty.find(params.expect(:id))
-      authorize!(@bounty)
-    end
+  def load_and_authorize_bounty
+    @bounty = Bounty.find(params.expect(:id))
+    authorize!(@bounty)
+  end
 
-    def bounty_params
-      params.expect(bounty: [ :title, :amount ])
-    end
+  def bounty_params
+    params.expect(bounty: [ :title, :amount ])
+  end
 end

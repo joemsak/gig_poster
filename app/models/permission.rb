@@ -6,8 +6,8 @@ class Permission
 
     private
 
-      def type_for(resource)
-        "#{resource.class.name}Permission".constantize
-      end
+    def type_for(resource)
+      "#{resource.class.name}Permission".constantize
+    end
   end
 end

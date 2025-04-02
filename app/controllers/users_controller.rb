@@ -35,12 +35,12 @@ class UsersController < ApplicationController
 
   private
 
-    def load_and_authorize_user
-      @user = User.find(params.expect(:id))
-      authorize!(@user)
-    end
+  def load_and_authorize_user
+    @user = User.find(params.expect(:id))
+    authorize!(@user)
+  end
 
-    def user_params
-      params.expect(user: [ :email, :password ])
-    end
+  def user_params
+    params.expect(user: [ :email, :password ])
+  end
 end
