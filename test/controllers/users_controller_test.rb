@@ -17,7 +17,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       post users_url, params: { user: { email: "valid@example.com", password: default_password } }
     end
 
-    assert_redirected_to user_url(User.last)
+    assert_redirected_to bounties_path
   end
 
   test "should get edit" do

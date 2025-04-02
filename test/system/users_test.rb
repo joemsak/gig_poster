@@ -14,7 +14,7 @@ class UsersTest < ApplicationSystemTestCase
       click_on "Sign up"
     end
 
-    assert_text "User was successfully created"
+    assert_text "Welcome to Bounty Hunter!"
   end
 
   test "should update User" do
