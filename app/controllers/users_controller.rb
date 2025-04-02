@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :load_and_authorize_user, only: %i[ edit update destroy ]
+  before_action :require_user, :load_and_authorize_user,
+    only: %i[ edit update ]
 
   def new
     @user = User.new
