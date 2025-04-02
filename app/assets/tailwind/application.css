@@ -34,6 +34,6 @@
   }
 
   button, input[type=submit] {
-    @apply block mt-4 py-2 px-4 cursor-pointer;
+    @apply block mt-4 py-2 px-4 outline cursor-pointer;
   }
 }

@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     if user.authenticate(params.expect(:password))
       session[:current_user_id] = user.id
-      redirect_to root_path, notice: "Welcome back"
+      redirect_to bounties_path, notice: "Welcome back"
     else
       render :new, alert: "Incorrect email and/or password"
     end

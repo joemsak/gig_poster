@@ -1,12 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
-
-  def index
-    @users = User.all
-  end
-
-  def show
-  end
+  before_action :load_and_authorize_user, only: %i[ edit update destroy ]
 
   def new
     @user = User.new
@@ -38,19 +31,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    @user.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to users_path, status: :see_other, notice: "User was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
   private
 
-    def set_user
+    def load_and_authorize_user
       @user = User.find(params.expect(:id))
+      authorize!(@user)
     end
 
     def user_params

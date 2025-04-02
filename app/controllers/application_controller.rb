@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
+  rescue_from "ActiveRecord::RecordNotFound" do
+  redirect_to root_path, alert: "We couldn't find that page."
+  end
+
   helper_method :current_user
 
   private
@@ -11,8 +15,8 @@ class ApplicationController < ActionController::Base
     end
 
     def authorize!(resource)
-      permission = Permission.for(resource:, user: current_user)
-      return if permission.allowed?(action_name)
+      permission = Permission.for(resource:, current_user:)
+      return if permission.allowed?(action_name:)
       redirect_to root_path, alert: "You are not allowed to do that."
     end
 
