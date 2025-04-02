@@ -8,31 +8,29 @@ class BountiesTest < ApplicationSystemTestCase
 
   test "should create bounty" do
     visit bounties_path
-    click_on "New bounty"
+    click_on "Post a bounty"
 
     fill_in "Amount", with: @bounty.amount
     fill_in "Title", with: @bounty.title
-    click_on "Create Bounty"
+    click_on "Save"
 
     assert_text "Bounty was successfully created"
-    click_on "Back"
   end
 
   test "should update Bounty" do
     visit bounty_url(@bounty)
-    click_on "Edit this bounty", match: :first
+    click_on "edit", match: :first
 
     fill_in "Amount", with: @bounty.amount
     fill_in "Title", with: @bounty.title
-    click_on "Update Bounty"
+    click_on "Save"
 
     assert_text "Bounty was successfully updated"
-    click_on "Back"
   end
 
   test "should destroy Bounty" do
     visit bounty_url(@bounty)
-    click_on "Destroy this bounty", match: :first
+    accept_confirm { click_on "delete", match: :first }
 
     assert_text "Bounty was successfully destroyed"
   end

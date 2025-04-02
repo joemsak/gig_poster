@@ -34,6 +34,18 @@
   }
 
   button, input[type=submit] {
-    @apply block mt-4 py-2 px-4 outline cursor-pointer;
+    @apply block mt-4 py-2 px-4 outline cursor-pointer transition hover:bg-gray-300 hover:outline-gray-500;
+  }
+
+  tr { 
+    @apply has-[td]:transition has-[td]:hover:bg-gray-300;
+  }
+
+  td {
+    @apply px-4 py-2 border-b;
+  }
+
+  dt {
+    @apply font-bold;
   }
 }

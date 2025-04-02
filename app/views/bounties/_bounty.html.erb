@@ -1,12 +1,6 @@
-<div id="<%= dom_id bounty %>">
-  <p>
-    <strong>Title:</strong>
-    <%= bounty.title %>
-  </p>
-
-  <p>
-    <strong>Amount:</strong>
-    <%= bounty.amount %>
-  </p>
-
-</div>
+<tr id="<%= dom_id bounty %>">
+  <td><%= bounty.title %></td>
+  <td><%= number_to_currency(bounty.amount) %></td>
+  <td><%= bounty.user_email %></td>
+  <td><%= link_to "details", bounty %></td>
+</tr>

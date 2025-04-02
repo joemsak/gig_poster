@@ -1,8 +1,14 @@
-<%= render @bounty %>
+<h1>Bounty posted by <%= @bounty.user_email %></h1>
 
-<div>
-  <%= link_to "Edit this bounty", edit_bounty_path(@bounty) %> |
-  <%= link_to "Back to bounties", bounties_path %>
+<dl class="mt-4">
+  <dt>Title</dt>
+  <dd><%= @bounty.title %></dd>
 
-  <%= button_to "Destroy this bounty", @bounty, method: :delete %>
+  <dt>Amount</dt>
+  <dd><%= number_to_currency(@bounty.amount) %></dd>
+</dl>
+
+<div class="mt-4 flex items-center gap-1">
+  <%= link_to "edit", edit_bounty_path(@bounty) %> |
+  <%= link_to "delete", @bounty, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 </div>

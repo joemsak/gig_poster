@@ -2,11 +2,8 @@
 
 <h1>Bounties</h1>
 
-<div id="bounties">
-  <% @bounties.each do |bounty| %>
-    <%= render bounty %>
-    <%= link_to "Show this bounty", bounty, class: :block %>
-  <% end %>
-</div>
+<%= button_to "&plus; Post a bounty".html_safe, new_bounty_path, method: :get %>
 
-<%= link_to "New bounty", new_bounty_path %>
+<table id="bounties" class="mt-4">
+  <%= render @bounties %>
+</table>
