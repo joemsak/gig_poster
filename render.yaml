@@ -1,0 +1,19 @@
+# Exported from Render on 2025-04-02T08:37:09Z
+services:
+- type: web
+  name: bounty_hunter
+  runtime: docker
+  repo: https://github.com/joemsak/bounty_hunter
+  plan: free
+  envVars:
+  - key: DATABASE_URL
+    sync: false
+  - key: RAILS_MASTER_KEY
+    sync: false
+  - key: WEB_CONCURRENCY
+    sync: false
+  region: oregon
+  dockerContext: .
+  dockerfilePath: ./Dockerfile
+version: "1"
+
