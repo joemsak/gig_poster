@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
 
     def force_ssl_if_needed
       return unless Rails.env.production?
-      
+
       # Check both the header and the protocol Rails detects
       if !request.ssl? && request.headers["X-Forwarded-Proto"] != "https"
         redirect_to root_url(protocol: "https"), status: :moved_permanently
