@@ -33,7 +33,7 @@ Rails.application.configure do
   config.ssl_options = {
     redirect: {
       port: 443,
-      exclude: ->(req) { req.headers['X-Forwarded-Proto'] == 'https' }
+      exclude: ->(req) { req.headers["X-Forwarded-Proto"] == "https" }
     },
     hsts: {
       preload: true,
