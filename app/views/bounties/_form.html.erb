@@ -11,6 +11,9 @@
     <%= f.text_field :amount %>
   </div>
 
+  <%= f.label :postal_code %>
+  <%= f.text_field :postal_code, data: { postal_code: true } %>
+
   <div class="mt-8 md:flex md:items-center md:gap-1">
     <%= f.submit "Save" %>
 
@@ -19,3 +22,21 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  (() => {
+    document.addEventListener("turbo:load", () => {
+      const postalCodeField = document.querySelector("[data-postal-code]")
+      const lsPostalCodeKey = "_bh_postal_code"
+      const postalCode = localStorage.getItem(lsPostalCodeKey)
+
+      if (postalCode && postalCodeField && postalCodeField.value == "")
+        postalCodeField.value = postalCode
+
+      if (postalCodeField)
+        postalCodeField.addEventListener("keyup", ({ target }) => {
+          localStorage.setItem(lsPostalCodeKey, target.value)
+        })
+    })
+  })()
+</script>

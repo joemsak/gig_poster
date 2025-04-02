@@ -57,6 +57,6 @@ class BountiesController < ApplicationController
   end
 
   def bounty_params
-    params.expect(bounty: [ :title, :amount ])
+    params.expect(bounty: [ :title, :amount, :postal_code ])
   end
 end
