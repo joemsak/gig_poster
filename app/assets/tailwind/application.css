@@ -26,7 +26,7 @@
   }
 
   input, select {
-    @apply outline py-2 px-4;
+    @apply border py-2 px-4;
   }
 
   label {
@@ -34,11 +34,11 @@
   }
 
   button, input[type=submit] {
-    @apply block mt-4 py-2 px-4 outline cursor-pointer transition hover:bg-gray-300 hover:outline-gray-500;
+    @apply block mt-4 py-2 px-4 border cursor-pointer transition hover:bg-gray-300 hover:border-gray-500;
   }
 
   tr { 
-    @apply has-[td]:transition has-[td]:hover:bg-gray-300;
+    @apply has-[td]:transition has-[td]:hover:bg-gray-100;
   }
 
   td {

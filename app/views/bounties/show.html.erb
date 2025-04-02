@@ -8,7 +8,9 @@
   <dd><%= number_to_currency(@bounty.amount) %></dd>
 </dl>
 
-<div class="mt-4 flex items-center gap-1">
-  <%= link_to "edit", edit_bounty_path(@bounty) %> |
-  <%= link_to "delete", @bounty, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-</div>
+<% if permission(@bounty).allowed?(action_name: :edit) %>
+  <div class="mt-4 flex items-center gap-1">
+    <%= link_to "edit", edit_bounty_path(@bounty) %> |
+    <%= link_to "delete", @bounty, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  </div>
+<% end %>

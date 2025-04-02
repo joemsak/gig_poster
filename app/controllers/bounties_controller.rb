@@ -3,7 +3,7 @@ class BountiesController < ApplicationController
   before_action :load_and_authorize_bounty, only: %i[ edit update destroy ]
 
   def index
-    @bounties = current_user.bounties
+    @bounties = Bounty.all
   end
 
   def show

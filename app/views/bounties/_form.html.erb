@@ -2,10 +2,14 @@
   <%= render "shared/errors", errors: bounty.errors %>
 
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, class: "w-full" %>
 
   <%= f.label :amount %>
-  <%= f.text_field :amount %>
+
+  <div class="flex">
+    <div class="py-2 px-4 bg-gray-300 font-bold border border-r-0">$</div>
+    <%= f.text_field :amount %>
+  </div>
 
   <div class="flex items-center gap-1">
     <%= f.submit "Save" %>

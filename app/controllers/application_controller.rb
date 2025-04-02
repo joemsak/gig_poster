@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: "We couldn't find that page."
   end
 
-  helper_method :current_user
+  helper_method :current_user, :permission
 
   private
 
@@ -15,9 +15,12 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize!(resource)
-    permission = Permission.for(resource:, current_user:)
-    return if permission.allowed?(action_name:)
+    return if permission(resource).allowed?(action_name:)
     redirect_to root_path, alert: "You are not allowed to do that."
+  end
+
+  def permission(resource)
+    @permission ||= Permission.for(resource:, current_user:)
   end
 
   def current_user
