@@ -1,4 +1,5 @@
 class BountiesController < ApplicationController
+  before_action :require_user
   before_action :set_bounty, only: %i[ show edit update destroy ]
 
   def index

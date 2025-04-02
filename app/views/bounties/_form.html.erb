@@ -1,27 +1,11 @@
-<%= form_with(model: bounty) do |form| %>
-  <% if bounty.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(bounty.errors.count, "error") %> prohibited this bounty from being saved:</h2>
+<%= form_with(model: bounty) do |f| %>
+  <%= render "shared/errors", errors: bounty.errors %>
 
-      <ul>
-        <% bounty.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+  <%= f.label :amount %>
+  <%= f.text_field :amount %>
 
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= f.submit %>
 <% end %>

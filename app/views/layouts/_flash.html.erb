@@ -1,0 +1,7 @@
+<% bg_color = notice ? "bg-green-600" : "bg-red-600" %>
+
+<% if notice || alert %>
+  <div class="<%= bg_color %> font-bold text-white px-4 py-2">
+    <%= notice || alert %>
+  </div>
+<% end %>

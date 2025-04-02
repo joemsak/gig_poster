@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :sessions, only: :create
   get "login" => "sessions#new", as: :login
+  get "logout" => "sessions#destroy", as: :logout
+  get "signup" => "users#new", as: :signup
 
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check

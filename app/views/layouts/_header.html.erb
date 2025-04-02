@@ -1,0 +1,14 @@
+<header class="px-4 py-2 bg-gray-500 text-white flex justify-between items-center">
+  <h1>Bounty Hunter</h1>
+
+  <div>
+    <% if current_user %>
+      <%= current_user.email %> |
+      <%= link_to "Log out", logout_path, class: "text-white" %>
+    <% else %>
+      <%= link_to "Log in", login_path, class: "text-white" %> |
+      <%= link_to "Sign up", signup_path, class: "text-white" %>
+    <% end %>
+  </div>
+</header>
+

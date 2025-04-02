@@ -25,7 +25,7 @@ class UserTest < ActiveSupport::TestCase
     user = User.new(password: "weak")
 
     assert_not user.valid?
-    assert_equal [ "must include at least one lowercase letter, one uppercase letter, one digit, one symbol (!, @, #, $, %, &, *), and needs to be minimum 8 characters." ],
+    assert_equal [ "must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, 1 symbol (!, @, #, $, %, &, *), and needs to be a minimum of 8 characters." ],
       user.errors[:password]
 
     user = User.new(email: "user@example.com", password: "NotWeak@1234")

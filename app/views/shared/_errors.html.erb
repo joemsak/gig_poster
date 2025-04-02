@@ -1,0 +1,12 @@
+<% if errors.any? %>
+  <div class="mt-4 text-red-600">
+    <h2>Please fix <%= pluralize(errors.count, "error") %>:</h2>
+
+    <ul>
+      <% errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+

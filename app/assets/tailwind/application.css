@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  p {
+    @apply mt-4;
+  }
+
+  a {
+    @apply text-blue-600 hover:underline;
+  }
+
+  ul {
+    @apply list-disc pl-4 mt-4;
+  }
+
+  ol {
+    @apply list-decimal pl-4 mt-4;
+  }
+
+  input, select {
+    @apply outline py-2 px-4;
+  }
+
+  label {
+    @apply block mt-4 cursor-pointer;
+  }
+
+  button, input[type=submit] {
+    @apply block mt-4 py-2 px-4 cursor-pointer;
+  }
+}

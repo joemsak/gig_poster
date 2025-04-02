@@ -67,3 +67,10 @@ gem "cuprite", "~> 0.15.1", group: :test
 gem "pessimize", "~> 0.5.0", group: :development
 
 gem "bcrypt", "~> 3.1.20"
+
+
+gem "tailwindcss-ruby", "~> 4.0.17"
+
+gem "tailwindcss-rails", "~> 4.2.1"
+
+gem "foreman", "~> 0.88.1", group: :development
