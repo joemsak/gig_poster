@@ -4,5 +4,5 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, complex_password: true
 
-  has_many :bounties
+  has_many :bounties, dependent: :destroy
 end

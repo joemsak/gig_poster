@@ -5,7 +5,7 @@ module TestLoginHelper
 
   def login_as(user)
     if defined?(post) # For controller/integration tests
-      post login_url, params: { email: user.email, password: default_password }
+      post sessions_url, params: { email: user.email, password: default_password }
     elsif defined?(visit) # For system tests (Capybara)
       visit login_path
       fill_in 'Email', with: user.email
