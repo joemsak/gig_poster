@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
-  before_action :force_ssl_if_needed
-
   rescue_from "ActiveRecord::RecordNotFound" do
     redirect_to root_path, alert: "We couldn't find that page."
   end
@@ -24,14 +22,5 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:current_user_id]) if session[:current_user_id]
-  end
-
-  def force_ssl_if_needed
-    return unless Rails.env.production?
-
-    # Check both the header and the protocol Rails detects
-    if !request.ssl? && request.headers["X-Forwarded-Proto"] != "https"
-      redirect_to root_url(protocol: "https"), status: :moved_permanently
-    end
   end
 end
