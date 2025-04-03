@@ -2,14 +2,13 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-
 (() => {
   document.addEventListener("turbo:load", () => {
-    const menuToggle = document.querySelector("#menu_toggle")
+    const openMenu = document.querySelector("#open_menu")
+    const closeMenu = document.querySelector("#close_menu")
+    const menu = document.querySelector("#menu")
 
-    menuToggle.addEventListener("click", e => {
-      const menu = document.querySelector("#menu")
-      menu.classList.toggle("hidden")
-    })
+    openMenu.addEventListener("click", () => menu.classList.remove("hidden"))
+    closeMenu.addEventListener("click", () => menu.classList.add("hidden"))
   })
 })()
