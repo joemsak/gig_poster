@@ -4,6 +4,11 @@
   <%= f.label :email %>
   <%= f.email_field :email %>
 
+  <% if user.persisted? %>
+    <%= f.label :postal_code %>
+    <%= f.text_field :postal_code %>
+  <% end %>
+
   <%= f.label :password %>
   <%= f.password_field :password %>
 
