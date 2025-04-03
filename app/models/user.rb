@@ -14,6 +14,7 @@ class User < ApplicationRecord
   end
 
   def initials
+    return unless first_name.present? && last_name.present?
     "#{first_name[0]}#{last_name[0]}"
   end
 end
