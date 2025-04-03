@@ -1,11 +1,15 @@
 require "net/http"
 
 class GeocodingController < ApplicationController
-  def show
+  def create
     uri = URI("http://api.geonames.org/findNearbyPostalCodesJSON")
     uri.query = { lat:, lng:, username: :joemsak }.to_query
+    res = Net::HTTP.get(uri)
+    postal_code = JSON(res)["postalCodes"][0]["postalCode"]
 
-    render json: Net::HTTP.get(uri)
+    current_user.update!(lat:, lng:, postal_code:)
+
+    render json: { lat:, lng:, postal_code: }
   end
 
   private

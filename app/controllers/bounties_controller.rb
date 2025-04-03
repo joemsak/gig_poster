@@ -11,7 +11,7 @@ class BountiesController < ApplicationController
   end
 
   def new
-    @bounty = Bounty.new
+    @bounty = current_user.bounties.build
   end
 
   def create
@@ -52,7 +52,7 @@ class BountiesController < ApplicationController
   private
 
   def load_and_authorize_bounty
-    @bounty = Bounty.find(params.expect(:id))
+    @bounty = current_user.bounties.find(params.expect(:id))
     authorize!(@bounty)
   end
 

@@ -4,6 +4,11 @@
 
 <%= button_to "&plus; Post a bounty".html_safe, new_bounty_path, method: :get, class: "mt-4" %>
 
-<table id="bounties" class="mt-4">
+<table
+  id="bounties"
+  class="mt-4"
+  data-controller="geocoding"
+  data-geocoding-postal-code-value="<%= current_user.postal_code %>"
+>
   <%= render @bounties %>
 </table>
