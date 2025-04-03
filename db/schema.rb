@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_02_233803) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_03_003143) do
   create_table "bounties", force: :cascade do |t|
     t.string "title"
     t.decimal "amount", precision: 5, scale: 2
@@ -29,6 +29,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_02_233803) do
     t.decimal "lat", precision: 15, scale: 10
     t.decimal "lng", precision: 15, scale: 10
     t.string "postal_code"
+    t.string "first_name"
+    t.string "last_name"
   end
 
   add_foreign_key "bounties", "users"

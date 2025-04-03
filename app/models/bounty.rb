@@ -11,4 +11,8 @@ class Bounty < ApplicationRecord
   def user_email
     user.email
   end
+
+  def user_first_name
+    user.first_name
+  end
 end

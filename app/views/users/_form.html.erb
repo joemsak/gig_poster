@@ -5,6 +5,12 @@
   <%= f.email_field :email %>
 
   <% if user.persisted? %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+
     <%= f.label :postal_code %>
     <%= f.text_field :postal_code %>
   <% end %>
