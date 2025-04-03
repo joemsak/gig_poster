@@ -46,11 +46,11 @@
   }
 
   tr { 
-    @apply has-[td]:transition has-[td]:hover:bg-gray-100;
+    @apply has-[td]:transition has-[td]:duration-350 has-[td]:hover:bg-gray-100;
   }
 
   td {
-    @apply px-4 py-2 border-b;
+    @apply px-4 py-2 border-b border-gray-300;
   }
 
   dt {
