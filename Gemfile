@@ -76,3 +76,9 @@ gem "tailwindcss-rails", "~> 4.2.1"
 gem "foreman", "~> 0.88.1", group: :development
 
 gem "pg", "~> 1.5.9"
+
+gem "ruby_ui", "~> 1.0", group: :development, require: false
+
+gem "phlex-rails", "~> 2.1"
+
+gem "tailwind_merge", "~> 1.1"
