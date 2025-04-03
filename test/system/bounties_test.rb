@@ -19,7 +19,10 @@ class BountiesTest < ApplicationSystemTestCase
 
   test "should update Bounty" do
     visit bounty_url(@bounty)
-    click_on "Edit", match: :first
+
+    within "main" do
+      click_on "Edit", match: :first
+    end
 
     fill_in "Amount", with: @bounty.amount
     fill_in "Title", with: @bounty.title
