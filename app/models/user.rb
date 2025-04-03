@@ -8,11 +8,8 @@ class User < ApplicationRecord
 
   has_many :bounties, dependent: :destroy
 
-  def full_name
-    if first_name.blank? && last_name.blank?
-      email
-    else
-      [first_name, last_name].join(" ")
-    end
+  def name
+    return email if first_name.blank?
+    "#{first_name} #{last_name[0]}."
   end
 end

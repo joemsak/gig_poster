@@ -12,7 +12,7 @@ class Bounty < ApplicationRecord
     user.email
   end
 
-  def user_first_name
-    user.first_name
+  def user_name
+    user.name
   end
 end
