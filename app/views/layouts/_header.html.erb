@@ -10,7 +10,16 @@
     [&_a]:text-white
   "
 >
-  <h1><%= link_to "Bounty Hunter", root_path %></h1>
+  <div class="flex items-center">
+    <h1><%= link_to "Bounty Hunter", root_path %></h1>
+
+    <% if current_user %>
+      <nav class="ml-32 flex items-center gap-16">
+        <%= link_to "Browse", bounties_path %>
+        <%= link_to "Post", new_bounty_path %>
+      </nav>
+    <% end %>
+  </div>
 
   <div>
     <% if current_user %>
