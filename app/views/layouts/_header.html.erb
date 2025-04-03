@@ -1,34 +1,72 @@
 <header
   class="
-    px-4
-    py-2
+    relative
+    p-4
     bg-gray-500
     text-white
     flex
-    justify-between
     items-center
-    [&_a]:text-white
   "
 >
-  <div class="flex items-center">
-    <h1><%= link_to "Bounty Hunter", root_path %></h1>
+  <h1 class="mr-32"><%= link_to "Bounty Hunter", root_path, class: "text-white" %></h1>
 
+  <nav class="hidden md:block flex grow items-center [&_a]:text-white [&_a]:px-8">
     <% if current_user %>
-      <nav class="ml-32 flex items-center gap-16">
-        <%= link_to "Browse", bounties_path %>
-        <%= link_to "Post", new_bounty_path %>
-      </nav>
+      <%= link_to "Browse", bounties_path %>
+      <%= link_to "Post", new_bounty_path %>
     <% end %>
-  </div>
+  </nav>
 
-  <div>
-    <% if current_user %>
-      <%= link_to current_user.name, edit_user_path(current_user) %> |
-      <%= link_to "Log out", logout_path %>
+  <button
+    id="menu_toggle"
+    class="
+      absolute
+      right-4
+      w-10
+      h-10
+      rounded-full
+      bg-gray-200
+      text-gray-800
+      flex
+      items-center
+      justify-center
+      shadow-sm
+      border-0
+      transition-colors
+      cursor-pointer
+      hover:bg-blue-100
+      hover:text-blue-600
+    "
+  >
+    <% if current_user && current_user.initials.present? %>
+      <span class="font-medium"><%= current_user.initials %></span>
     <% else %>
-      <%= link_to "Log in", login_path %> |
-      <%= link_to "Sign up", signup_path %>
+      <svg class="absolute" fill="#555" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 45.532 45.532" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><g><path d="M22.766,0.001C10.194,0.001,0,10.193,0,22.766s10.193,22.765,22.766,22.765c12.574,0,22.766-10.192,22.766-22.765 S35.34,0.001,22.766,0.001z M22.766,6.808c4.16,0,7.531,3.372,7.531,7.53c0,4.159-3.371,7.53-7.531,7.53 c-4.158,0-7.529-3.371-7.529-7.53C15.237,10.18,18.608,6.808,22.766,6.808z M22.761,39.579c-4.149,0-7.949-1.511-10.88-4.012 c-0.714-0.609-1.126-1.502-1.126-2.439c0-4.217,3.413-7.592,7.631-7.592h8.762c4.219,0,7.619,3.375,7.619,7.592 c0,0.938-0.41,1.829-1.125,2.438C30.712,38.068,26.911,39.579,22.761,39.579z"></path></g></g></svg>
     <% end %>
-  </div>
-</header>
+  </button>
 
+  <nav id="menu"
+    class="
+      hidden
+      absolute
+      right-0
+      top-[60px]
+      md:top-[64px]
+      bg-white
+      shadow
+      [&_a]:pl-4
+      [&_a]:py-4
+      [&_a]:pr-16
+    "
+  >
+    <% if current_user %>
+      <%= link_to "Browse", bounties_path, class: "block md:hidden" %>
+      <%= link_to "Post", new_bounty_path, class: "block md:hidden" %>
+      <%= link_to "Edit Profile", edit_user_path(current_user), class: :block %>
+      <%= link_to "Log out", logout_path, class: :block %>
+    <% else %>
+      <%= link_to "Log in", login_path, class: :block %>
+      <%= link_to "Sign up", signup_path, class: :block %>
+    <% end %>
+  </nav>
+</header>

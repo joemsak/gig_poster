@@ -12,4 +12,8 @@ class User < ApplicationRecord
     return email if first_name.blank?
     "#{first_name} #{last_name[0]}."
   end
+
+  def initials
+    "#{first_name[0]}#{last_name[0]}"
+  end
 end
